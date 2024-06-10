@@ -1,15 +1,22 @@
 #!/usr/bin/env node
 
 import { program } from "commander"
+import inquirer from "inquirer"
 
 program
   .version("1.0.0")
   .description("My Node CLI")
-  .option("-n, --name <type>", "Add your name")
-  .option("-a, --age <number>", "Add your age")
-  .option("-e, --email <string>", "Add your email")
-  .action((options) => {
-    console.log(`Hey, ${options.name + options.email + options.age}!`)
+  .action(() => {
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "name",
+          message: "What's your name?",
+        },
+      ])
+      .then((answers) => {
+        console.log(`Hey, ${answers.name + answers.email + answers.age}!`)
+      })
   })
-
-program.parse(process.argv)
+  .parse(process.argv)
