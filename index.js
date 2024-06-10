@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
 import { program } from "commander"
+// import { Command } from "commander"
 import inquirer from "inquirer"
+// program = new Command()
 
-program
-  .version("1.0.0")
-  .description("My Node CLI")
-  .option("-n, --name [name]", "Your name")
+export const nameQuestion = program
+  .command("name")
   .action(() => {
     inquirer
       .prompt([

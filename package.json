@@ -13,7 +13,8 @@
     "inquirer": "^9.2.23"
   },
   "bin": {
-    "my-node-cli": "./index.js"
+    "my-node-cli": "./index.js",
+    "name": "noade my-node-cli"
   },
   "type": "module"
 }
