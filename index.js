@@ -6,6 +6,7 @@ import inquirer from "inquirer"
 program
   .version("1.0.0")
   .description("My Node CLI")
+  .option("-n, --name [name]", "Your name")
   .action(() => {
     inquirer
       .prompt([
@@ -16,7 +17,7 @@ program
         },
       ])
       .then((answers) => {
-        console.log(`Hey, ${answers.name + answers.email + answers.age}!`)
+        console.log(`Hey, ${answers.name}!`)
       })
   })
   .parse(process.argv)
